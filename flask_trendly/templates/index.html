@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="topbody">
+    <div class="header">
+        <h1><a href="/" class="header_logo">trendly</a></h1>
+        <h2 class="header_text">今、世の中で起こっていること、トレンドが素早く分かる</h2>
+        <h1 class="header_title">trendly</h1>
+        <p class="header_text2">今のトレンドワード(スクロールして詳細を確認)</p>
+        <div class="img_box"><img src="{{ url_for('static', filename='wordcloud/trend_top.png') }}" class="header_topimg"></div>
+        <div class="scrolldown1"><span>Scroll</span></div>
+    </div>
+    <div class="main">
+        {% for word in words %}
+        <div class="word_contents">
+            <h2 class="main1_text"># {{ word[1] }}</h2>
+            <img src="static/wordcloud/{{ word[2] }}.png" class="header_img">
+            <p class="gnews_title">関連ニュース</p>
+            <ul class="main1_scroll_content">
+            {% for gnews in gnewss %}
+                {% if gnews[0] ==  word[0] %}
+                    <li class="gnews_list">
+                        <a href="{{ gnews[2] }}"><img src="{{ gnews[3] }}"></a>
+                        <a href="{{ gnews[2] }}"><h3>{{ gnews[1] }}</h3></a>
+                    </li>
+                {% else %}
+                {% endif %}
+            {% endfor %}
+            </ul>
+            <p class="tweet_title">人気のつぶやき</p>
+            <ul class="main1_scroll_content2">
+            {% for tweet in tweets %}
+            {% if tweet[0] ==  word[0] %}
+                    <li class="tweet_list">
+                    {{ tweet[1]|safe }}
+                    </li>
+            {% else %}
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    <footer>
+        <small>© .trendly ALL RIGHTS RESERVED.</small>
+    </footer>
+</body>
+{% endblock %}

@@ -1,0 +1,249 @@
+.topbody{
+  min-height: 100vh;
+  width: 100%;
+  background-color: #FAFAFA;
+  display: grid;
+  grid-template: 
+      "... ...... ...... ......  ..." 
+      "... header header header  ..." 510px
+      "... ...... ...... ......  ..." 100px
+      "... main   main   main    ..." 1fr
+      "... ...... ...... ......  ..." 10px
+      "... footer footer footer  ..." 40px
+      "... ...... ...... ......  ..."
+      /auto 1fr   1fr    1fr; 
+}
+
+.header{
+    grid-area: header;
+    display:flex;
+    flex-flow: column;
+    background-color: #FFFFFF;
+}
+.main{
+    grid-area: main;
+    display:flex;
+    flex-flow: column;
+    text-align : center;
+}
+footer{
+    grid-area: footer;
+    font-size: 0.5rem;
+    text-align: center;
+    border-top: 2px solid #ddd;
+    padding: 10px;
+}
+
+.header_logo {
+  text-decoration: none;
+  margin: 20px;
+  color: rgb(243, 102, 8);
+  font-style: italic;
+  flex: none;
+  font-family: 'A1ゴシック M JIS2004';
+  font-feature-settings: 'palt' 1;
+  font-size: 12px;
+  font-weight: 800;
+  height: 10px;
+  left: 5px;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  margin: 10px;
+  position: fixed;
+  text-align: center;
+  top: 10px;
+  width: auto;
+  max-width: 100%;
+  justify-content: center;
+  font-family: "Tsukushi B Round Gothic","筑紫B丸ゴシック";
+  z-index: 3;
+}
+
+.header_text{
+    color: rgb(240, 112, 27);
+    font-size: 12px;
+    font-family: "Tsukushi B Round Gothic","筑紫B丸ゴシック";
+    margin: 20px 30px 0px 30px;
+    z-index: 2;
+}
+.header_text2 {
+  color: rgb(240, 112, 27);
+  font-size: 14px;
+  font-family: "Tsukushi B Round Gothic","筑紫B丸ゴシック";
+  margin: 40px 30px 0px 20px;
+  z-index: 2;
+  font-weight: 900;
+  text-align: left;
+}
+.header_title {
+  font-size: 46px;
+  font-weight: 900;
+  font-style: italic;
+  /* text-shadow: 0 0 1px black; */
+  font-family: 'A1ゴシック M JIS2004';
+  color: rgb(240, 112, 27);
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin: 0px;
+}
+.img_box {
+  margin: 10px 20px 0px 20px;
+  /* padding: 20px; */
+  /* border: 2px solid #ddd; */
+  border-radius: 6px;
+}
+.header_topimg {
+  width: 100%;
+  height: 250px;
+}
+.header_img {
+  width: 100%;
+}
+.scrolldown1{
+    /*描画位置※位置は適宜調整してください*/
+  position:absolute;
+  left:50%;
+  top:550px;
+    /*全体の高さ*/
+  height:50px;
+  z-index: 2;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown1 span{
+    /*描画位置*/
+  position: absolute;
+  left:-22px;
+  top: -20px;
+    /*テキストの形状*/
+  color: rgb(243, 102, 8);
+  font-size: 1.2;
+  letter-spacing: 0.05em;
+  font-family: "Tsukushi B Round Gothic","筑紫B丸ゴシック";
+}
+
+/* 線の描写 */
+.scrolldown1::after{
+  content: "";
+    /*描画位置*/
+  position: absolute;
+  top: 0;
+    /*線の形状*/
+  width: 1px;
+  height: 30px;
+  background: rgb(243, 102, 8);
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+  animation: pathmove 1.4s ease-in-out infinite;
+  opacity:0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove{
+  0%{
+    height:0;
+    top:0;
+    opacity: 0;
+  }
+  30%{
+    height:30px;
+    opacity: 1;
+  }
+  100%{
+    height:0;
+    top:50px;
+    opacity: 0;
+  }
+}
+.word_contents {
+  display:flex;
+  flex-direction: column;
+  margin: 30px 0px 30px 0px;
+  padding: 3px;
+  border-top: 2px solid #ddd;
+}
+.main1_text {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.9;
+  text-align: center;
+  word-wrap: break-word;
+  margin-top: 15px;
+  color: #333;
+  margin-bottom: 10px;
+}
+.main1_scroll_content {
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+.gnews_title {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  margin: 12px 0px 3px 14px;
+}
+.gnews_list {
+  display: flex;
+  list-style: none;
+  max-height: 100px;
+  margin: 5px;
+  /* border-top: 2px solid #ddd; */
+  border-bottom: 2px solid #ddd;
+  /* border: 2px solid #ddd; */
+  opacity: 0.7;
+}
+.gnews_list img {
+  width: 60px;
+  height: 60px;
+}
+.gnews_list h3 {
+  font-size: 0.7rem;
+  margin: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.gnews_list a {
+  text-decoration: none;
+  color: #000000;
+}
+.main1_scroll_content2 {
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  height: 500px;
+  overflow:scroll;
+  border-radius: 6px;
+  background-color: #f3f3f3;
+}
+.tweet_title {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  margin: 12px 0px 3px 14px;
+}
+.tweet_list {
+  list-style: none;
+  margin: 5px;
+}
+  
+.main2::-webkit-scrollbar {
+  height: 12px; /* スクロールバーの高さ */
+}
+  
+.main2::-webkit-scrollbar-thumb {
+  background: #aaa; /* ツマミの色 */
+  border-radius: 6px; /* ツマミ両端の丸み */
+}
+  
+.main2::-webkit-scrollbar-track {
+  background: #ddd; /* トラックの色 */
+  border-radius: 6px; /* トラック両端の丸み */
+}
+
+@media screen and (min-width: 1024px) {
+}
